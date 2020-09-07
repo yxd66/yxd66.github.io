@@ -13,9 +13,6 @@ header,article,footer{
 	
 	min-width:1000px;
 }
-footer {
-	width: 1349px;
-}
 header section {
 	height: 60px;
 	margin-top:30px;
