@@ -12,7 +12,7 @@ article {
 	position:absolute;
 	top:0;
 	left:200px;
-	width: 860px;
+	width: 870px;
 }
 section {
 	width: 846px;
@@ -151,7 +151,7 @@ article>div:nth-of-type(3)>div {
 	line-height:48px;
 	border-top:1px solid #e5e9ef;
 	border-left:1px solid #fff;
-	margin-left:129px;
+	margin-left:130px;
 	transition:all .2s linear 0s;
 }
 article>div:nth-of-type(3)>div:hover {
