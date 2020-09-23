@@ -70,6 +70,7 @@ header section:nth-child(2) div:nth-child(2) span:last-child {
 
 article section:first-child {
 	background-image: url(https://public-cdn.mokahr.com/27b4a0b1-20e0-4f59-98f1-708cece043d3.jpg);
+	background-size:100% 100%;
 	position:relative;
 	min-height:400px;
 }
@@ -78,8 +79,10 @@ article section:first-child div:nth-child(2) {
 }
 article section:first-child div:nth-child(1) {
 	position:absolute;
-	left:405px;
-	top:218px;
+	left:50%;
+	top:50%;
+	margin-left:-27px;
+	margin-top:-18px;
 	width: 540px;
 	height: 36px;
 	font-size:14px;
