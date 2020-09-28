@@ -20,18 +20,5 @@
 			<img src="./bilibili招聘网/images/2.png">
 		</a>
 	</div>
-	<script>
-		var section = document.querySelector('section')
-		document.addEventListener('scroll',function () {
-			if (section.getBoundingClientRect().top <= 0) {
-				section.style.position = 'fixed'
-				section.style.top = '0px'
-			}
-			if (pageYOffset < 270) {
-				section.style.position = 'absolute'
-				section.style.top = '270px'
-			}
-		})
-	</script>
 </body>
 </html>
