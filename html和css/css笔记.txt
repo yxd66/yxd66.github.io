@@ -1,0 +1,377 @@
+							css是 标记语言不是 编程语言
+							   css3要兼容,且用且珍惜
+浏览器私有前缀：
+	-moz-       :代表火狐私有属性  
+	-ms-        :代表ie浏览器私有属性
+	-webkit-    :代表safari,chrome私有属性
+	-o-         :代表opera私有属性
+
+选择器权重
+继承/* : 0
+标签选择器/伪元素选择器 : 1
+类/伪类选择器/属性选择器 : 10
+id选择器 : 100
+行内样式 : 1000
+!important : 无穷大
+
+margin,padding设置百分比时都是相对宽度来计算的
+行级元素设置padding，margin上下边距时没有用
+
+字体倾斜：font-style: italic;
+
+文本缩进：text-indent:px/em;
+
+透明: opacity:0~1; transparent;
+
+伪类选择器：
+	作用于a链接的伪类选择器：
+			1.	:link : 链接未被访问触发
+			2.	:visited : 链接被访问触发
+			3.	:hover : 进入链接触发
+			4. 	:active : 按下链接时触发，抬起时消失
+			注意：顺序时l v h a,不能调换
+	:hover : 鼠标进入时触发,离开时消失
+	作用于表单的伪类选择器：
+			1.	:focus : 表单获得焦点时触发
+
+背景平铺：background-repeat: repeat | no-repeat | repeat-x | repeat-y ;平铺|不平铺|沿x轴平铺|沿Y轴平铺
+背景位置：background-position：x，y；
+			参数可以为方位名词：left，top，center，bottom，right，当只有一个参数时，另一个参数是center
+			参数可以为精确单位：就是px
+			参数可以为混合单位：方位名词和精确单位混合用
+
+背景图像固定：background-attachment: fixed | scroll ;：设置图像是否固定或随页面滚动
+
+背景颜色：background: rgba( 0~255,0~255,0~255 ,0~1); 参数（红，绿，蓝，透明度）
+
+虚线边框: border-style: dashed; 
+
+点线边框: border-style: dotted; 
+
+合并相邻的边框: border-collapse: collapse;
+
+元素水平居中：块级元素用margin: 0 auto;行级元素和行级块元素用text-align: center;
+
+嵌套块元素子元素设置margin作用到了父级元素(嵌套块元素垂直外边距的塌陷)： 可以设置overflow:hidden;
+
+盒子阴影：box-shadow: h-shadow v-shadow blur spread color inset;
+		h-shadow	必需。水平阴影的位置。允许负值
+		v-shadow	必需。垂直阴影的位置。允许负值
+		blur		可选。模糊距离
+		spread		可选。阴影的尺寸
+		color		可选。阴影的颜色
+		inset		可选。将外部阴影(outset)改为内部阴影
+
+文字阴影：text-shadow: h-shadow v-shadow blur color
+		h-shadow	必需。水平阴影的位置。允许负值
+		v-shadow	必需。垂直阴影的位置。允许负值
+		blur		可选。模糊距离
+		color		可选。阴影的颜色
+
+浮动特性：给元素设置浮动该元素就会被的元素占用位置。解决办法是给浮动元素加
+		个父元素包裹它，并且给父元素设置浮动元素的高度
+
+给元素设置浮动和绝对定位和相对定位该元素会成为行级块元素
+
+清除浮动：clear:both;
+
+清除浮动的方法：
+		(不推荐)额外标签法：最后一个浮动元素后面加一个块级元素，设置clear：both；
+		(推荐)父级添加overflow属性：
+		(推荐)父级添加after伪元素：.clearfix:after{
+				content:"";display:block;height:0;clear:both;visibility:hidden;
+			}
+		(推荐)父级添加双伪元素：.clearfix:before,.clearfix:after{
+					content:"";display:table;
+				}
+				.clearfix:after{
+					clear:both;
+				}
+
+overflow: hidden | auto | scroll; 隐藏 | 自适应 | 上下滚动条
+
+position: static | relative | absolute | fixed | sticky;
+		 静态定位 | 相对定位 | 绝对定位 | 固定定位 粘性定位
+		static: 默认，无定位
+		relative：相对自己原来位置移动，不脱标继续保留原来位置
+		absolute: 相对父级定位移动，不保留原来位置
+		fixed：相对可视窗口移动，不保留原来位置
+		(兼容性差)sticky：相对可视窗口移动，保留原来位置
+
+z-index: ;控制盒子的先后顺序,值越大越先
+
+显示隐藏元素；display:block|none; visibility:visible|hidden;
+
+精灵图：把很多小图片放在一个图片里，通过background-position选小图片
+
+css实现三角形(等腰三角)：border: 10px solid transparent;border-left|right|top|bottom-color:颜色;
+css三角强化(不等腰三角)：
+			border-width: 0;
+			border-left: 50px solid #66f;
+			border-top: 100px solid transparent;
+
+鼠标样式：cursor：default | pointer | move | text | not-allowed;
+		         小白(默认) | 小手 | 移动 | 文本 | 禁止
+
+取消表单,文本域轮廓线：outline: none | 0;
+
+防止文本域拖拽：resize: none;
+
+行内块和文字水平对齐：vertical-align: baseline | top | middle | bottom;
+					  				    基线  | 顶端  |  中部  | 底部 
+
+图片底部空白缝隙解决：原因是行级块元素会与文字的基线对齐;
+			解决方法：给图片添加vertical-align：middle | top | bottom;
+
+单行文本溢出显示省略号：
+		1.先强制一行内显示文本：white-space: nowrap;(默认normal自动换行)
+		2.超出的部分隐藏：overflow:hidden;
+		3.文字用省略号代替超出的部分：text-overflow:ellipsis;
+
+多行文本溢出显示省略号：(只支持webkit内核的浏览器,比如谷歌)
+		1.超出的部分隐藏：overflow:hidden;
+		2.文字用省略号代替超出的部分：text-overflow:ellipsis;
+		3.限制在一个块元素显示的文本的行数：-webkit-line-clamp:数字;
+		4.设置或检索伸缩盒对象的子元素的排列方式：-webkit-box-orient：vertical;
+
+属性选择器：
+		E[att]				选择具有att属性的E元素	
+  (重点)E[att=val]			选择具有att属性且属性值等于val的E元素		
+		E[att^="val"]		匹配具有att属性且值以val开头的E元素			
+		E[att$="val"]		匹配具有att属性且值以val结尾的E元素
+		E[att*="val"]		匹配具有att属性且值中含有val的E元素
+
+结构伪类选择器：
+		E:first-child		匹配父元素中的第一个子元素E
+		E:last-child		匹配父元素中最后一个E元素
+		E:nth-child(n)		匹配父元素中的第n个子元素E(n可以是数字,关键字(奇数odd,偶数even)和公式(						未知数必须为n,从零开始依次加一))
+		E:first-of-type		指定类型E的第一个
+		E:last-of-type		指定类型E的最后一个
+		E:nth-of-type(n)	指定类型E的第n个
+		nth-child和nth-of-type的区别：
+				E:nth-child：执行时看父级的第一个元素,第一个元素是E时就执行
+				E:nth-of-type: 执行时只看父级的第一个元素,跟E无关
+
+伪元素选择器(利用css创建标签元素)：
+		::before：在元素内部的前面插入内容
+		::after：在元素内部的后面插入内容
+		注意：创建的元素为行内元素，必须有content属性
+
+box-sizing指定盒模型：
+		box-sizing: content-box;	border,padding会撑大盒子,盒子大小为width + padding + border(默认)
+		box-sizing: border-box;		border,padding不会撑大盒子,盒子大小为width
+
+滤镜filter：filter:函数();		例如：filter：blur(5px);	blur模糊处理(值越大越模糊)
+
+calc函数: 让你在声明css属性值时执行一些计算(+,-,*,/).
+		例如：width:calc(100%-50px);/*子元素永远比父元素小50px*/
+
+过渡(transition):经常和:hover一起使用
+		transition:要过渡的属性 花费的时间 运动曲线 何时开始;
+		1.属性: 想要变化的css属性,如果想要所有的属性都变化过渡,写一个all就可以
+		2.花费时间: 单位是秒
+		3.运动曲线: 默认是ease(从慢到快然后逐渐慢下来)(可以省略)(其他值自己去查)
+		4.何时开始: 单位是秒,可以设置延迟触发时间 
+
+2D转换：transform：
+				移动：translate(x,y) | translateX(n) | translateY(n)
+					注意：1.最大优点：不会影响其他元素位置
+						  2.translate中的百分比单位是相对于自身元素的sranslate:(50%,50%)
+						  3.对行内元素没有效果
+				旋转：rotate(0~360deg | -360~0deg)
+				缩放：scale(x,y|n): 0~1为缩小 例如：值为1表示不变，为2放大2倍
+					注意：1.最大优点：不会影响其他元素位置
+						  2.translate中的百分比单位是相对于自身元素的sranslate:(50%,50%)
+						  3.对行内元素没有效果
+		transform-origin: x y; : 
+				可以设置元素转换的中心点(x y 可以是百分比可以是px也可以是left,right,top,bottom)
+		综合写法：transform:translate() rotate() scale()..等
+				注意：1.其书写顺序会影响转换的效果(先旋转会改变坐标轴方向)
+					  2.有位移把位移写在最前面
+
+动画：
+		制作动画分为两步：
+		1.先定义动画
+			@keyframes 动画名称{
+				/*开始*/
+				0%或者from {
+					样式
+				}
+				n% {
+					样式
+				}
+				/*结束*/
+				100%或者to {
+					样式
+				}
+			}
+		2.再使用(调用)动画
+			元素 {
+				animation-name: 动画名称;
+				animation-duration: 持续时间;
+			}
+		3.属性：
+			animation-timing-function	规定运动曲线,默认ease(从慢到快然后逐渐慢下来)
+			animation-delay				规定动画何时开始默认0
+			animation-iteration-count	规定动画播放次数默认1,还有infinite
+			animation-direction			规定动画是否下周逆向播放默认是normal还有alternate
+			animation-play-state		规定动画是否正在运行或暂停默认running还有pause
+			animation-fill-mode			规定动画结束后状态,保持forwards,回到起始backwards
+		4.属性简写：
+		animation:动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向动画起始或者结束的状态;
+
+3D转换：
+	3D移动translate3d：
+		transform:translateX(n)
+		transform:translateY(n)
+		transform:translateZ(n)	一般用px
+		transform:translate3d(x,y,z)
+	透视perspective：
+		单位为px
+		透视写在被观察元素的父元素上
+	3D旋转rotate3d：
+			transform:rotateX(n deg)
+			transform:rotateY(n deg)
+			transform:rotateZ(n deg)
+			transform:rotate3d(x,y,z,deg)
+	3D呈现transform-style
+		*控制子元素是否开启三维立体环境
+		*transform-style:flat;子元素不开启3d立体空间，默认
+		*transform-style：preserve-3d;子元素开启立体空间
+		*代码写给父级,影响子盒子
+
+背景渐变:
+	线性渐变：background:linear-gradient(起始方向,颜色1,颜色2,颜色3...)
+
+
+								移动端
+
+max-width:;
+min-width:;
+特殊样式：
+		/*css3盒子模型*/
+		-webkit-box-sizing:border-box;
+		/*点击高亮我们需要清除 设置为transparent透明*/
+		-webkit-tap-highlight-color:transparent;
+		/*在移动端浏览器默认的外观在ios上加这个属性才能给按钮和输入框自定义样式*/
+		-webkit-appearance:none;
+		/*禁用长按页面时的弹出菜单*/
+		img,a{-webkit-touch-callout:none;}
+
+flex布局(给父盒子设置)：
+	*	当我们为父盒子设为flex布局以后,子元素的float、clear和vertical-align属性将失效
+	*	伸缩盒布局=弹性布局=伸缩布局=弹性盒布局=flex布局
+	常见父盒子属性：
+		(了解)flex-direction:row|row-reverse|column|column-reverse; 
+			设置主轴的方向
+			  默认值从左到右|从右到左|从上到下|从下到上
+		justify-content：
+			设置主轴上的子元素排列方式
+			flex-start：默认值，从头开始，当主轴为X轴，则从左到右
+			flex-end：从尾部开始排列
+			center：在主轴居中对齐
+			space-around：平分剩余空间
+			space-between：先两边贴边在平分剩余空间
+		flex-wrap：设置父元素装不下子元素是否换行
+			nowrap：默认，不换行，子元素会缩小
+			wrap：换行
+		align-content：
+			设置侧轴上的子元素的排列方式(多行)(只有在换行的情况)
+			flex-start：默认值在侧轴的头部开始排列
+			flex-end：从侧轴的尾部开始排列
+			center：从侧轴中间显示
+			space-around：子项在侧轴平分剩余空间
+			space-between：子项在侧轴先分布在两头，再平分剩余空间
+			stretch：设置子项元素高度平分父元素高度
+		align-items：
+			设置侧轴上的子元素的排列方式(单行)
+			flex-start：从上到下
+			flex-end：从下到上
+			center：挤在一起居中(水平居中)
+			stretch：拉升(拉伸)
+		flex-flow：复合属性，相当于同时设置了flex-direction和flex-wrap
+	flex属性；定义子项目分配剩余空间，用flex来表示占多少份，默认值为0，值为number数字
+	align-self:控制子项自己在侧轴上的排列方式
+		注意：align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性
+			默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则同于stretch
+	order属性：定义项目(子元素)的排列顺序
+		注意：数值越小，排列越靠前，默认为0.和z-index不一样
+
+rem单位: 相对html元素大小
+	优点：可以通过修改html元素字体大小来修改里面的元素大小
+em单位: 相对父元素字体大小
+
+媒体查询(@media)：可以针对不同屏幕尺寸设置不同的样式
+	例子：@media mediatype and (min-width:540px) {
+			div {
+				background-color: red;
+			}
+		}
+	语法规范
+		@media mediatype and|not|only (media feature) {
+			css-code;
+		}
+		*用@media开头
+		*mediatype媒体类型
+			all：用于所有设备
+			print：用于打印机和打印预览
+			screen：用于电脑屏幕、平板电脑、智能手机等
+		*关键字and|not|only
+				and：将多个媒体连接到一起
+				not：排除某个媒体类型
+				only：指定某个特定的媒体类型
+		*media feature媒体特性 必须有小括号包含
+			width；设备页面可见区域宽度
+			min-width: 设备页面最小可见区域宽度
+			max-width：设备页面最大可见区域宽度
+
+less基础：Less是一门css扩展语言，也成为css预处理器
+	维护css的弊端：CSS是一门非程序式语言，没有变量、函数、作用域等概念
+		*CSS需要书写大量看似没有逻辑的代码，CSS冗余度是比较高的
+		*不方便维护及扩展，不利于复用
+		*css没有很好的计算能力
+		*非前端开发工程师来讲，往往会因为缺少css编写经验而很难写出组织良好且易于维护的css代码项目
+	Less介绍：在css的语法基础上引入了变量、Mixin(混入)，运算以及函数等功能
+	Less变量：@变量名:值;(变量名区分大小写)
+		例如：@color:pink;
+			  body {
+			  	background-color: @color;
+			  }
+	Less编译成CSS：安装插件Easy LESS(报存less文件时会自动生成css文件)
+	Less嵌套: 例子：
+		css写法：.a {
+					width:200px;
+					height:200px;
+				}
+				.a .b {
+					width:100px;
+					height:100px
+				}
+		less写法：.a {
+						width:200px;
+						height:200px;
+						.b {
+							width:100px;
+							height:100px
+						}
+					}
+		如果遇见(交集|伪类|伪元素选择器)
+			*在选择器前面加&符号
+			例子：
+				 css:(.a .b:hover)
+					.a {
+						width:200px;
+						height:200px;
+						.b {
+							width:100px;
+							height:100px；
+							&:hover{
+								....
+							}
+						}
+					}
+	Less运算：任何数字，颜色或者变量都可以参与运算。Less提供了+、-、*、/算数运算
+		例如：@a:5px + 5; -------- 10px
+			  @aa:5px + 5rem; ------- 10px
+			  @b:#666 + #333; ------- #999
+		注意：*运算符左右要敲空格

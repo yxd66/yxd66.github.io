@@ -1,0 +1,27 @@
+事件注册
+change(function () {})：当元素发生改变时触发事件处理函数
+其他事件与原生基本一致。比如click,mouseover,mouseout,blur,focus,change,keydown,keyup,resize,scroll等
+
+
+
+事件处理
+on(events,[selector],fn)绑定事件：在匹配元素上绑定一个或多个事件的事件处理函数
+	语法1：$('div').on({事件1，事件2}) -------- 每个事件处理函数不同
+	语法2：$('div').on('事件1 事件2',function(){}) -------- 每个事件处理函数相同
+	events：一个或多个用空格分割的事件类型，如"click"或"keydown"
+	selector：元素的子元素选择器
+	fn：回调函数
+	优点：可以实现事件委托;可以给未来创建的元素绑定事件
+off()解绑事件：可以移除通过on()方法添加的事件处理程序
+	比如：$('div').off('click') ----- 解除div身上的点击事件
+		：$('ul').off('click','li') ----- 解除li的事件委托
+one(events,[selector],fn)绑定事件：类似于on()，但是只能触发一次
+自动触发事件：
+	1.click()
+	2.trigger('type')
+	3.triggerHandler(type)(不会触发元素的默认行为)
+
+
+
+
+事件对象：相当于原生中的事件对象

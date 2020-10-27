@@ -1,0 +1,11 @@
+Number()   : 把括号里的内容千方百计的转化为数字类型并返回值转化不了就变成NaN 比如：null是0 true是1 false是0 undefined是NaN
+parseInt(string,radix)(radix的取值范围是2到36)     :从数字位往后看看到非数字位截止再把括号里的内容转化为整型并返回值 比如parseInt(123.3abc)返回123但是：true、false、null、undefined都是NaN。特点：比如在括号里的第二个内容如果是16时它就会以为第一个内容的值是16进制返回值是10进制------parseInt(10,16)--10是16进制返回16
+parseFloat()      :从数字位往后看看到除了点以外的非数字位截止再把括号里的内容转化为整型并返回值 比如parseFloat(123.3abc)返回123.3
+Math.floor() 向下取整。
+Math.ceil() 向上取整。
+Math.IP :   圆周率。
+Math.round() 四舍五入（.5算作0）。
+Math.max()/Math.min() 求最大最小值。
+Math.abs() 绝对值。     
+Math.random ------>Math.random() 函数返回一个浮点,  伪随机数在范围[0，1)
+isNaN()： 判断是否为数字

@@ -1,0 +1,110 @@
+				html是 标记语言不是 编程语言
+
+块元素 ：h1~h6,p,div,ul,ol,li
+
+行内元素 ：a,strong,b,em,i,ins,del,s,u,span,audio
+
+行内块元素 ：img,input,video
+
+p标签和br标签的区别：p标签换行时,上下有很大的间距，br标签没有
+
+strong和b标签：字体加粗
+
+em和i标签：字体倾斜
+
+del和s标签：字体中划线
+
+ins和u标签：字体下划线
+
+a标签：
+	target属性有两个值，默认值为_self表示在当前窗口打开，
+	还有个值为_blank，表示在新窗口打开
+
+table标签：用于定义表格的标签,属性cellspacing="0"去除单元格之间的空白
+
+thead标签：用于定义表格的头部
+
+tbody标签：用于定义表格的主体
+
+tr标签：用于定义表格中的行，必须嵌套在table标签中
+
+td标签：用于定义表格中的单元格，必须嵌套在tr标签中
+
+th标签：用于定义表格中的表头单元格，必须嵌套在tr标签中，默认居中加粗
+
+合并单元格：
+	跨行合并：rowspan=“合并单元格的个数” 最上侧单元格为目标单元格，写合并代码
+	跨列合并：colspan=“合并单元格的个数”最左侧单元格为目标单元格，写合并代码
+
+dl和dt和dd标签：dl用于定义列表，该标签会与dt标签(定义项目或名字)和dd标签(描述每一个项目或名字	 )一起使用
+
+label标签：用于绑定一个表单元素，当点击label标签，浏览器会自动将焦点转到或者选择对应的表单元	素上，用来增加用户体验，for属性对应表单的id值
+
+select和option标签：表示下拉菜单，select为容器，option为每一个选项，在option中设置selected="     selected"，当前项就为默认项
+
+textarea标签：定义多行文本输入的空键				
+
+hr标签：水平线
+
+语义化标签；
+
+		header标签：头部标签
+		
+		nav标签：导航标签
+		
+		article标签：内容标签
+		
+		section标签：定义文档某个区域
+		
+		aside标签：侧边栏标签
+		
+		footer标签：尾部标签
+
+audio标签：
+		支持三种视频格式：MP3,Wev,Ogg(注意IE和Safari兼容)
+		属性：
+				autoplay="autoplay"		自动播放(谷歌需要添加muted)
+				controls="controls"		显示播放控件
+				loop="loop"				循环播放
+				preload="auto|none"		是否预加载视频(如果有autoplay就忽略该属性)
+				src=""					音频url地址
+				muted="muted"			静音播放
+
+video标签：
+		支持三种视频格式：MP4,WebM,Ogg(注意IE和Safari兼容)
+		属性：
+				autoplay="autoplay"		自动播放(谷歌不会自动播放)
+				controls="controls"		显示播放控件
+				width,height			设置宽高
+				loop="loop"				循环播放
+				preload="auto|none"		是否预加载视频(如果有autoplay就忽略该属性)
+				src=""					视频url地址
+				poster="图片路径"		加载等待的画面图片
+				muted="muted"			静音播放
+
+input标签:
+		type属性:
+			email:	限制用户输入必须为Email类型
+			url:	限制用户输入必须为URL网址类型
+			date:	限制用户输入必须为日期类型
+			time:	限制用户输入必须为时间类型
+			month:	限制用户输入必须为月类型
+			week:	限制用户输入必须为周类型
+			(重点)number:	限制用户输入必须为数字类型
+			(重点)tel:	手机号码
+			(重点)search:	搜索框
+			color:	生成一个颜色选择表单
+			checkbox:	单击按钮变成小勾勾  
+		required属性：required="required"				内容不能为空
+		placeholder属性：placeholder="提示信息"  		表单的提示信息，存在默认值时不显示
+		autocomplete属性：autocomplete="off/on(默认)"   记录以前提交过的数据，要有name属性
+		multiple属性：multiple="multiple"		 		可以多选文件提交
+		checked属性：checked="checked" 
+			按钮默认小勾勾   
+
+H5自定义属性：
+	如何设置：以data-开头作为属性名并赋值
+		例如：<div data-index="1"></div>
+	获取自定义属性：通过getAttribute('属性')获取
+	html5新增获取自定义属性方法：dataset.data-后面的属性或者dataset['data-后面的属性']
+		例如：获取data-index：dataset.index;获取data-index-app: dataset.indexApp；

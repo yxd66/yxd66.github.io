@@ -1,0 +1,20 @@
+jQuery筛选选择器
+
+语法		用法			描述
+:first      $('e:first')	获取第一个li元素
+:last		$('e:last')		获取最后一个li元素
+:eq(index)	$('e:eq(2)')	获取到的li元素中，选择索引号为2的元素，索引号从0开始
+:odd		$('e:odd')		获取到的li元素中，选择索引号为奇数的元素
+:even		$('e:even')		获取到的li元素中，选择索引号为偶数的元素
+
+jQuery筛选方法
+
+语法				用法							描述
+parent      		$('li').parent()				查找最近一级的父级
+children(selector)	$('ul').children('li')			相当于子代选择器
+find(selector)		$('ul').find('li')				相当于后代选择器
+siblings(selector)	$('.first').siblings('li')		查找兄弟节点，不包括自身
+nextAll([expr])		$('.first').nextAll()			查找当前元素之后所有的同辈元素
+prevAll([expr])		$('.first').prevAll()			查找当前元素之前所有的同辈元素
+hasClass(class)		$('div').hasClass('protected')	检查当前元素是否含有某个特定的类，有就返回true
+eq(index)			$('li').eq(2)					相当于$('e:eq(2)')

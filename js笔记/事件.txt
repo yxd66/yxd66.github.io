@@ -1,0 +1,90 @@
+	事件分为传统方式（以on开头）和方法监听注册方式（w3c推荐addEventListener（）方法）
+区别：传统方式只能给元素绑定一个事件，监听注册方式可以给一个元素绑定多个事件
+addEventListener（type，listener，[useCapture]）：
+	type：事件类型（字符串形式），比如click，mouseover，注意这里不要带on
+	listener：事件处理函数
+	useCapture：可选参数，布尔值，默认为false
+
+addEvent（enentNameWithOn，callback）（被淘汰，被上面方法替代了）：
+	enentNameWithOn：事件类型（字符串形式），比如onclick，onmouseover，注意这里要带on
+	callbackr：事件处理函数
+
+传统方式：window.onload：document所有内容加载完毕再执行它
+推荐方式：window.addEventListener('load',function(){})：document所有内容加载完毕再执行它
+document.addEventListener('DOMContentLoaded',function())：仅当DOM加载完成，不包括样式表，图片，flash等等
+传统方式window.onresize：当窗口大小发生像素变化时触发
+推荐方式window.addEventListener('load',function(){})：当窗口大小发生像素变化时触发
+
+mousemove：在元素内移动鼠标时触发
+mousedown：按下鼠标时触发
+mouseup：抬起鼠标时触发
+onmouseover：鼠标进入元素时触发
+mouseenter：和上面类似，但不冒泡
+onmouseout：鼠标离开元素时触发
+mouseleave：和上面类似，但不冒泡
+mousewheel：滚动鼠标滚轮时触发
+onscroll: 滚动条滚动触发
+onclick：按下或释放鼠标时触发
+oncontextmenu：当上下文菜单即将出现时触发
+ondblclick：双击鼠标时触发
+onfocus：在元素内按下或释放鼠标时触发，获得焦点
+onblur：在元素外按下或释放鼠标时触发，失去焦点
+禁止鼠标右键菜单：contextmenu主要控制应该何时显示上下文菜单
+	document.addEventListener('contextmenu', function (e) {
+		//阻止默认行为
+		e.preventDefault();
+	})
+禁止鼠标选中：selectstart开始选中
+	document.addEventListener('selectstart', function (e) {
+		//阻止默认行为
+		e.preventDefault();
+	})
+
+
+删除事件：
+	传统方式：元素.事件 = null
+	方法监听注册方式：元素.removeEventListener('事件类型',处理函数的函数名称)
+
+DOM事件流：事件发生时会从document开始查找绑定的事件元素（事件捕获），事件发生时会从绑定的事件元素开始查找到document（事件冒泡）。
+	     事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流
+	1.JS代码中只能执行捕获或者冒泡其中的一个阶段
+	2.onclick和attachEvent 只能得到冒泡阶段
+	3.addEventListener（type，listener，[useCapture]）第三个参数如果是true，表示在事件捕获阶段调用事件处理函数；
+	   如果是false（不写默认是false），表示在事件冒泡阶段调用事件处理函数
+阻止事件冒泡：e.stopPropagation（）	标准
+	      e.canceBubble = true	ie6-8
+
+事件对象：就是事件处理函数括号里面的形参：function （event）{}，事件对象里面保存了很多关于当前事件的信息，比如鼠标点击的位置、键盘按下的位置等
+	事件对象常见属性方法：
+		e.target：返回触发事件的元素对象	标准
+		e.srcElement：返回触发事件的元素对象	ie6-8使用
+		e.type：返回事件的类型
+		e.cancelBubble：该属性阻止事件冒泡	ie6-8使用
+		e.returnValue：该属性阻止默认事件（默认行为）	ie6-8使用 		比如不让链接跳转
+		e.preventDefault()：该属性阻止默认事件（默认行为）	标准		比如不让链接跳转
+		e.stopPropagation()：阻止冒泡		标准
+	常用的鼠标事件：
+		e.clientX：返回鼠标相对于浏览器窗口可视区的X坐标
+		e.clientY：返回鼠标相对于浏览器窗口可视区的Y坐标
+		e.pageX：返回鼠标相对于文档页面的X坐标 IE9+支持
+		e.pageY：返回鼠标相对于文档页面的Y坐标 IE9+支持
+		e.screenX：返回鼠标相对于电脑屏幕的X坐标
+		e.screenY：返回鼠标相对于电脑屏幕的Y坐标
+	常用的键盘事件：
+		e.keyCode属性：可以得到相应键的ASCII码值
+		onkeydown：按下键盘按键时触发，触发这个事件才有keyCode属性
+		onkeyup：释放键盘按键时触发，触发这个事件才有keyCode属性
+		onkeypress：释放键盘按键时触发，但是它不识别功能键 比如shift ctrl等
+
+事件委托（代理、委派）：不是每个子节点单独设置事件监听器，而是事件监听器设置在父节点上，然后利用冒泡原理影响设置每个子节点
+
+
+触屏事件：touch
+	touchstart：手指触摸到一个DOM元素时触发
+	touchmove：手指在一个DOM元素上滑动时触发
+	touchend	：手指在一个DOM元素上移开时触发
+
+触摸事件对象：touchEvent
+	touches：正在触摸屏幕的所有手指的一个列表
+	targetTouches：正在触摸当前DOM元素上的手指的一个列表
+	changedTouches：手指状态发生了改变的列表，从无到有，从有到无变化

@@ -1,0 +1,44 @@
+document.querySelector（）：通过CSS选择器选取第一个元素，括号内填选择器字符串形式。
+document.querySelectorAll（）：通过CSS选择器选取所有元素，括号内填选择器字符串形式。
+document.body：获取body元素。
+document.documentElement：获取html元素
+
+className属性：获取或更改元素类名
+getAttribute('属性')：获取元素的属性值
+setAttribute('属性'，'值')：更改元素的属性值
+
+parentNode属性：该节点的父节点。
+childNodes属性：该节点子节点的实时表示。
+children属性：该节点子元素节点的实时表示。
+firstChild、lastChild属性：该节点的子节点中的第一个和最后一个。
+nextSibling、previoursSibling属性：该节点的兄弟节点中的前一个和后一个。
+nodeType属性：该节点的类型。1代表元素节点，3代表文本节点，8代表注释节点等等。
+nodeValue属性：文本节点和注释节点的文本内容。
+nodeName属性：元素的标签名。
+
+	|
+	|
+上面的是包括所有节点的属性，下面是只包括元素节点的属性
+	|
+	|
+
+firstElementChild，lastElementChild属性。
+nextElementSibling，previousElementSibling属性。
+chlidElementCount属性：子元素的数量。
+children.length属性：和上面的一样。
+
+innerHTML属性：获取和设置元素内容(识别html标签，保留空格和换行)。  w3c标准
+innerText属性：获取和设置文本内容(不识别html标签，去除空格和换行)。非标准
+textContent属性：和innerText属性通常可以替换使用。
+
+createElement（）：创建一个元素节点。
+appendChild（）：在需要插入的元素节点上调用该方法，使其成为那个节点的最后一个子节点。
+insertBefore（）: 和appendChild（）方法一样，但接收两个参数，第二个参数是已存在的节点，新节点将插入该节点的前面。
+removeChild（）：从文档树中删除一个节点，接收两个参数 --------（父节点，要删除的子节点）
+replaceChild（）：删除一个子节点并用新节点代替。接收两个参数 ------ （新节点，需要替换的节点）
+cloneNode（）：复制节点，当没有参数时，只复制标签不复制内容和子节点。如果括号里面为true时就不一样了
+
+
+
+
+

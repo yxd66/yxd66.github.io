@@ -1,0 +1,38 @@
+setTimeout（）：计时器，执行一次。第一个参数是函数，第二个参数是执行时间
+clearTimeout（）：取消计时器，参数是计时器名
+setInterval（）：计时器，持续执行。第一个参数是函数，第二个参数是执行时间
+clearInterval（）：取消计时器，参数是计时器名
+location属性：可以查询和修改网页url
+	location.href		获取或设置整个url
+	location.host		返回主机（域名）比如 www.yxd66.top
+	location.port		返回端口号，如果没写 返回空字符串
+	location.pathname		返回路径
+	location.search		返回参数
+	location.hash		返回片段 #后面内容 常见于链接 锚点
+location.assign()：跟href一样，可以跳转页面（也称为重定向页面）
+location.relace()：替换当前页面，因为不记录历史，所以不能后退页面
+location.reload()：重新加载页面，相当于刷新按钮或者f5 如果参数为true 强制刷新 ctrl+f5
+history.back（）：和浏览器的后退按钮一样，后退一页。
+history.forward（）：和浏览器的前进按钮一样，前进一页。
+history.go（）：上面两个方法的结合，接收一个参数，负几就是后退几下，正几就是前进几下。
+navigator属性：包含web浏览器厂商和版本信息，最常用的是userAgent，该属性可以返回客户机发送服务器的user-agent头部的值
+	右面代码可以判断用户那个终端打开页面，实现跳转 -- https://www.bilibili.com/video/BV167411p7hi?p=95
+screen属性：提供有关窗口显示大小和可用的颜色数量等信息。
+alert（）：向用户显示一条信息，并等待用户关闭对话框。
+confirm（）：也显示一条信息，要求用户点击“确定”和“取消”按钮，并返回布尔值。
+prompt（）：同样也显示一条信息，等待用户输入字符串，并返回那个字符串。
+open（）：打开一个新窗口，第一个参数是新窗口的url，第二个参数是新窗口的名字
+close（）关闭一个窗口。
+
+pageXOffset（），pageYOffset（）：浏览器窗口滚动条的位置。
+getBoundingClientRect（）：返回一个有left、right、top、bottom属性的对象。left和top属性表示元素的左上角的X和Y坐标，right和bottom属性表示元素的右下角的X和Y坐标。
+elementFromPoint（）：传入X和Y坐标，该方法返回在指定位置的一个元素。
+scrollLeft和scrollTop属性：可以设置让浏览器滚动
+scrollBy（）：scrollLeft和scrollTop属性的结合。接收两个参数，第一个scrollLeft，第二个scrollTop。
+scroll（）和scrollTo（）：只能移动一次，不能用定时器多次调用
+offsetLeft和offsetTop属性：返回元素的X和Y坐标（左上角）。
+offsetWidth和offsetHeight属性：返回元素实际的宽高，不含边框。
+offsetParents属性：返回它带有定位的父元素，否则返回body
+clientLeft和clientTop属性：返回左边框和上边框的大小。
+clientWidth和clientHeight属性：返回元素的宽高（不包括边框）。
+

@@ -1,0 +1,32 @@
+对象拷贝
+$.extend([deep],target,object1,[objectN])：对象拷贝
+	1.deep：如果设为true为深拷贝,默认为false 浅拷贝
+	2.target：要拷贝的目标对象
+	3.object1：待拷贝到第一个对象的对象
+	4.浅拷贝是把被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝对象
+	5.深拷贝,前面加true,完全克隆(拷贝的对象,而不是地址)，修改目标对象不会影响被拷贝对象,有不冲突的属性对合并
+
+
+
+
+多库共存
+	问题概述：
+		jQuery使用$作为标识符,随着jQuery的流行,其他js库也会用这$作为标识符,这样一起使用会引发冲突
+	客观需求：
+		需要一个解决方案,让jQuery和其他的js库不存在冲突,可以同时存在,这就叫多库共存
+	jQuery解决方案：
+		1.把里面的$符号统一改成jQuery。比如jQuery('div')
+		2.jQuery变量规定新的名称：$.noConflict() 比如var xx = $.onConflict();用自定义的名称代替$或者jQuery
+
+
+
+
+jQuery插件
+	jQuery插件库：http://www.jq22.com/
+	jQuery之家：http://www.htmleaf.com/
+	jQuery插件演示之图片懒加载(图片使用延迟加载在可提高网页下载速度。它也能帮助减轻服务器负载)
+		当我们页面滑动到可视区域，再显示图片
+	jQuery插件演示之全屏滚动(fullpage.js)
+		github: https://github.com/alvarotrigo/fullPage.js
+		中文翻译网站：http://www.dowebok.com/demo/2014/77/
+	Bootstrap：

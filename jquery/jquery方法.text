@@ -1,0 +1,85 @@
+index()：获取当前元素的索引号
+
+//效果
+基本
+hide([speed,[easing],[fn]])：隐藏当前元素
+		speed:('slow'或'normal'或'fast'或毫秒数),
+		easing:('swing'(默认)或'linear'),
+		fn:回调函数
+show([speed,[easing],[fn]])：显示当前元素，参数同上
+toggle([speed,[easing],[fn]])：显示或隐藏当前元素，参数同上
+
+滑动
+slideDown([speed,[easing],[fn]])：下拉滑动，参数同上
+slideUp([speed,[easing],[fn]])：上拉滑动，参数同上
+slideToggle([speed,[easing],[fn]])：上拉下拉滑动切换，参数同上
+
+淡入淡出
+fadeIn([speed,[easing],[fn]])：淡入效果，参数同上
+fadeOut([speed,[easing],[fn]])：淡出效果，参数同上
+fadeToggle([speed,[easing],[fn]])：淡入淡出切换，参数同上
+fadeTo([speed,opacity,[easing],[fn]])：渐进方式调整到指定的不透明度，
+		参数除了opacity表示透明度，其他参数同上
+		注意：speed和opacity必需写
+animate(params,[speed],[easing],[fn])：自定义动画
+		params：想要更改的样式属性，以对象形式传递
+		其他参数，同上上
+hover([over,]out)：事件切换
+		over：鼠标移动元素上要触发的函数(相当于mouseenter)
+		out：鼠标移出元素要触发的函数(相当于mouseleave)
+		注：如果只写一个参数，鼠标经过离开都触发函数
+stop()：用于停止动画和效果，注意：stop()写在动画或效果前面，相当于停止结束上一次的动画
+
+
+
+//样式操作
+addClass()：给元素添加类，不影响原来的类名
+removeClass()：删除类
+toggleClass()：切换类(有这个类就删除类，没有类就添加这个类)
+
+
+
+//属性操作
+prop()：设置或获取元素固有属性值
+attr()：设置或获取元素自定义属性值
+data()：可以在指定的元素上存储或获取数据，并不会修改元素DOM元素结构。一旦页面刷新，之前存放的数据都将被移除
+		同时，还可以读取HTML5自定义属性data-index( 比如$('div').data('index')(data-省略了) )，得到的是数字型
+
+
+
+//内容文本值
+html()：获取元素的内容(相当于js中的innerHTML)
+text()：获取元素的文本内容(相当于js中的innerText)
+val()：获取设置表单值(相当于原生的value)
+
+
+
+
+//元素操作(主要是遍历、创建、添加、删除元素操作)
+each( function(index,domEle){} )：遍历元素
+	1.each()方法遍历匹配的每个元素。主要用DOM处理
+	2.里面的回调函数有两个参数：index是每个元素的索引号；domEle是每个DOM元素对象，而不是jQuery对象
+	3.所以要想使用jQuery方法，需要给这个dom元素转换为jquery $(domEle)
+$.each(Object, function(i,ele){} )：遍历(主要用于数据处理，比如数组、对象)
+	1.Object表示需要遍历的对象
+	2.当Object为数组是，i为索引值，ele为值。当Object为对象是，i为属性名，ele为属性值
+
+
+
+
+
+//尺寸、位置操作
+
+jquery尺寸
+width()/height()：取得宽高值 只含内容宽高
+innerWidth()/innerHeight()：取得宽高值 包含padding
+outerWidth()/outerHeight()：取得宽高值 包含padding、border
+outerWidth(true)/outerHeight(true)：取得宽高值 包含padding、border、margin
+
+jquery位置
+offset()：设置或获取元素偏移
+	1.offset()方法设置或返回被选元素相对于文档的偏移值,跟父级没有关系
+position()：获取元素偏移
+	1.position()方法用于返回被选元素相对于带有定位的父级偏移坐标，如果父级没有定位，则以文档为主
+scrollTop()/scrollLeft()：设置或获取元素被卷去的头部和左侧
+    1.scrollTop()/scrollLeft()设置或返回被选元素被卷去的头部和左侧(导航条下拉(右拉)上面内容(左面)被卷去)

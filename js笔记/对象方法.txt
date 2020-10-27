@@ -1,0 +1,10 @@
+console.dir（）：打印我们返回的元素对象 更好的查看里面的属性和方法
+Object.create（）：它创建一个新对象，其中一个参数是这个对象的原型。
+hasOwnProperty（）：用来检测给定的名字是否是对象的自有属性。对于继承属性它将返回false。
+propertyIsEnumerable（）：是hasOwnProperty（）的增强版，只有检测到是自有属性且这个属性的可枚举性为true时它才返回true。
+Object.getPrototypeOf（）：对象为参数，可以查询它的原型。
+isPrototypeOf（）：检测一个对象是否是另一个对象的原型（或原型链中）。
+toString（）：没有参数，返回一个表示调用这个方法的对象值的字符串。
+toLocaleString（）：返回一个表示这个对象的本地字符串。
+toJSON（）：如果在待序列化的对象中存在这个方法，则调用它，返回值即是序列化的结果。
+Objext.assign（）：对象替换，第一个参数为被替换的对象，第二个参数为替换的参数。

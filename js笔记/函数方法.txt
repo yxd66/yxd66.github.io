@@ -1,0 +1,4 @@
+arguments对象：所有函数都内置了arguments对象，对象中储存了传递的所有实参
+call（）：调用函数并能改变this的指向。例子：function a（x，y）{console.log（x+y）}		add.call（a，1，1）---add取得a函数，并传参，结果为2。
+apply（）：和call相似，但是它的实参是用数组形式的。----add.call（a，[1,1]）
+bind（）：和call相似，但是它返回的是新函数 ----- foo = function（）{}。foo1 = foo.bind()。foo!=foo1
